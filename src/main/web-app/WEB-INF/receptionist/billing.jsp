@@ -32,8 +32,8 @@
         .btn { padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500; }
         .btn-primary { background: #667eea; color: white; }
         .btn-primary:hover { background: #5568d3; }
-        .btn-success { background: #28a745; color: white; }
-        .btn-success:hover { background: #218838; }
+        .btn-success { background: #1b43d1; color: white; }
+        .btn-success:hover { background: #405ed6; }
         .bill-container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto; }
         .bill-header { text-align: center; border-bottom: 3px solid #667eea; padding-bottom: 20px; margin-bottom: 30px; }
         .bill-header h2 { margin: 0 0 10px 0; color: #667eea; font-size: 28px; }

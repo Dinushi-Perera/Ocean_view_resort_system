@@ -41,7 +41,7 @@
         .alert-danger { background: #f8d7da; color: #721c24; border-left: 4px solid #dc3545; }
         .badge { padding: 5px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
         .badge-pending { background: #fff3cd; color: #856404; }
-        .badge-confirmed { background: #d4edda; color: #155724; }
+        .badge-confirmed { background: #d4edda; color: #152e57; }
         .badge-checked-in { background: #d1ecf1; color: #0c5460; }
         .badge-checked-out { background: #f8d7da; color: #721c24; }
         .badge-cancelled { background: #f8d7da; color: #721c24; }
@@ -49,14 +49,14 @@
         .checkin-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         .checkin-card h3 { margin-top: 0; padding-bottom: 15px; border-bottom: 2px solid #e9ecef; }
         .booking-item { padding: 15px; background: #f8f9fa; margin-bottom: 10px; border-radius: 5px; border-left: 4px solid #667eea; }
-        .booking-item.checkin { border-left-color: #28a745; }
+        .booking-item.checkin { border-left-color: #3528a7; }
         .booking-item.checkout { border-left-color: #dc3545; }
         .booking-info { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; font-size: 14px; }
         .booking-info-label { color: #666; }
         .booking-info-value { font-weight: 500; }
         .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: 500; margin-top: 10px; }
-        .btn-success { background: #28a745; color: white; }
-        .btn-success:hover { background: #218838; }
+        .btn-success { background: #2870a7; color: white; }
+        .btn-success:hover { background: #213988; }
         .btn-danger { background: #dc3545; color: white; }
         .btn-danger:hover { background: #c82333; }
         .btn:disabled { background: #6c757d; cursor: not-allowed; opacity: 0.6; }

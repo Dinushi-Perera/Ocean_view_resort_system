@@ -137,6 +137,7 @@
                             <label for="role">Select Role</label>
                             <select id="role" name="role" required>
                                 <option value="">Choose your role</option>
+                                <option value="admin">Administrator</option>
                                 <option value="manager">Manager</option>
                                 <option value="receptionist">Receptionist</option>
                             </select>
@@ -148,6 +149,7 @@
                     <div style="margin-top: 15px; text-align: center; padding: 15px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px;">
                         <p style="color: var(--gray); font-size: 0.85rem; margin: 0;">Demo Credentials</p>
                         <div style="color: var(--dark); font-size: 0.9rem; margin: 5px 0 0 0; font-weight: 500;">
+                            <p style="margin: 2px 0;">Admin: admin / admin123</p>
                             <p style="margin: 2px 0;">Manager: manager / manager123</p>
                             <p style="margin: 2px 0;">Receptionist: receptionist / reception123</p>
                         </div>

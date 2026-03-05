@@ -41,7 +41,7 @@
         .stat-value {
             font-size: 32px;
             font-weight: bold;
-            color: #00796b;
+            color: #0284c7;
         }
         .stat-label {
             color: #666;
@@ -59,7 +59,7 @@
             border-collapse: collapse;
         }
         .data-table th {
-            background: #00796b;
+            background: #0284c7;
             color: white;
             padding: 12px;
             text-align: left;
@@ -81,7 +81,7 @@
             margin: 2px;
         }
         .btn-primary {
-            background: #00796b;
+            background: #0c4a6e;
             color: white;
         }
         .status-badge {
@@ -92,7 +92,7 @@
         }
         .status-confirmed {
             background: #c8e6c9;
-            color: #2e7d32;
+            color: #107db0;
         }
         .status-checked-in {
             background: #b3e5fc;
@@ -100,7 +100,7 @@
         }
         .status-checked-out {
             background: #f0f4c3;
-            color: #827717;
+            color: #06b6d4;
         }
         .status-cancelled {
             background: #ffcdd2;
@@ -115,7 +115,7 @@
         .section-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00796b;
+            color: #01579b;
         }
         .alert {
             padding: 12px 20px;
@@ -124,8 +124,8 @@
         }
         .alert-success {
             background: #c8e6c9;
-            color: #2e7d32;
-            border: 1px solid #4caf50;
+            color: #06b6d4;
+            border: 1px solid #01579b;
         }
         .alert-error {
             background: #ffcdd2;
@@ -189,6 +189,12 @@
                     <a href="<%= request.getContextPath() %>/manager/billing" class="nav-link">
                         <span class="nav-icon">&#128176;</span>
                         Billing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<%= request.getContextPath() %>/manager/monthly-report" class="nav-link">
+                        <span class="nav-icon">&#128200;</span>
+                        Monthly Report
                     </a>
                 </li>
                 <li class="nav-item">

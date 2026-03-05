@@ -40,11 +40,11 @@
         .btn-primary:hover { background: #5568d3; }
         .btn-secondary { background: #6c757d; color: white; }
         .btn-secondary:hover { background: #5a6268; }
-        .btn-success { background: #28a745; color: white; margin-bottom: 20px; }
-        .btn-success:hover { background: #218838; }
+        .btn-success { background: #3128a7; color: white; margin-bottom: 20px; }
+        .btn-success:hover { background: #214888; }
         .rooms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .room-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #667eea; }
-        .room-card.available { border-left-color: #28a745; }
+        .room-card.available { border-left-color: #284aa7; }
         .room-card.occupied { border-left-color: #dc3545; }
         .room-type { font-size: 20px; font-weight: bold; margin-bottom: 15px; color: #333; text-transform: capitalize; }
         .room-stats { display: flex; justify-content: space-between; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 5px; }
@@ -52,7 +52,7 @@
         .room-stat-number { font-size: 24px; font-weight: bold; }
         .room-stat-label { font-size: 12px; color: #666; margin-top: 5px; }
         .availability-bar { height: 20px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin-top: 10px; }
-        .availability-fill { height: 100%; background: linear-gradient(90deg, #28a745, #20c997); transition: width 0.3s; }
+        .availability-fill { height: 100%; background: linear-gradient(90deg, #3528a7, #2088c9); transition: width 0.3s; }
         .availability-fill.medium { background: linear-gradient(90deg, #ffc107, #fd7e14); }
         .availability-fill.low { background: linear-gradient(90deg, #dc3545, #e83e8c); }
         
@@ -60,7 +60,7 @@
         .section-title { font-size: 24px; font-weight: bold; margin: 30px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #667eea; }
         .room-detail-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid #e0e0e0; transition: all 0.3s; }
         .room-detail-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); transform: translateY(-2px); }
-        .room-detail-card.available { border-left-color: #28a745; }
+        .room-detail-card.available { border-left-color: #3528a7; }
         .room-detail-card.occupied { border-left-color: #dc3545; }
         .room-detail-card.maintenance { border-left-color: #ffc107; }
         .room-detail-left { flex: 1; }
@@ -71,7 +71,7 @@
         .room-detail-right { text-align: right; }
         .room-detail-price { font-size: 22px; font-weight: bold; color: #667eea; margin-bottom: 8px; }
         .room-detail-status { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
-        .status-available { background: #d4edda; color: #155724; }
+        .status-available { background: #d4edda; color: #152057; }
         .status-occupied { background: #f8d7da; color: #721c24; }
         .status-maintenance { background: #fff3cd; color: #856404; }
         .no-rooms { text-align: center; padding: 40px; color: #999; font-size: 16px; }
