@@ -55,7 +55,7 @@
                     <p class="hero-description">Experience the ultimate luxury escape on the pristine shores of Galle,
                         Sri Lanka. Where the Indian Ocean meets world-class hospitality.</p>
                     <div class="hero-buttons">
-                        <a href="login.jsp" class="btn-hero btn-hero-primary">Explore Rooms</a>
+                        <a href="#rooms" class="btn-hero btn-hero-primary">Explore Rooms</a>
                         <a href="login.jsp" class="btn-hero btn-hero-secondary">Book Now</a>
                     </div>
                 </div>

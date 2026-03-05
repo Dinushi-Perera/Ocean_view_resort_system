@@ -30,7 +30,7 @@
     <style>
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .stat-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .stat-value { font-size: 32px; font-weight: bold; color: #00796b; }
+        .stat-value { font-size: 32px; font-weight: bold; color: #002279; }
         .stat-label { color: #666; margin-top: 5px; }
         .data-table { width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .data-table table { width: 100%; border-collapse: collapse; }
@@ -38,18 +38,18 @@
         .data-table td { padding: 12px; border-bottom: 1px solid #eee; }
         .data-table tr:hover { background: #f5f5f5; }
         .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; margin: 2px; }
-        .btn-primary { background: #00796b; color: white; }
+        .btn-primary { background: #000679; color: white; }
         .btn-secondary { background: #0288d1; color: white; }
-        .btn-success { background: #388e3c; color: white; }
+        .btn-success { background: #38638e; color: white; }
         .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-        .status-confirmed { background: #c8e6c9; color: #2e7d32; }
+        .status-confirmed { background: #c8e6c9; color: #2e527d; }
         .status-checked-in { background: #b3e5fc; color: #01579b; }
         .status-checked-out { background: #f0f4c3; color: #827717; }
         .status-cancelled { background: #ffcdd2; color: #c62828; }
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .section-title { font-size: 24px; font-weight: bold; color: #00796b; }
+        .section-title { font-size: 24px; font-weight: bold; color: #020079; }
         .alert { padding: 12px 20px; border-radius: 4px; margin-bottom: 20px; }
-        .alert-success { background: #c8e6c9; color: #2e7d32; border: 1px solid #4caf50; }
+        .alert-success { background: #c8e6c9; color: #2e527d; border: 1px solid #4caf50; }
         .alert-error { background: #ffcdd2; color: #c62828; border: 1px solid #f44336; }
         .search-section { background: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .search-form { display: flex; gap: 10px; align-items: flex-end; }
@@ -115,6 +115,12 @@
                     <a href="<%= request.getContextPath() %>/manager/billing" class="nav-link">
                         <span class="nav-icon">&#128176;</span>
                         Billing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<%= request.getContextPath() %>/manager/monthly-report" class="nav-link">
+                        <span class="nav-icon">&#128200;</span>
+                        Monthly Report
                     </a>
                 </li>
                 <li class="nav-item">
@@ -216,6 +222,11 @@
                         <textarea name="specialRequests" rows="2"></textarea>
                     </div>
                     
+                    <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                        <input type="checkbox" name="sendEmail" id="sendEmailManager" value="true" checked style="width: auto; accent-color: #00796b;">
+                        <label for="sendEmailManager" style="margin: 0; font-weight: 500; cursor: pointer;">&#9993; Send confirmation email to guest</label>
+                    </div>
+
                     <button type="submit" class="btn btn-success">Create Reservation</button>
                 </form>
             </div>

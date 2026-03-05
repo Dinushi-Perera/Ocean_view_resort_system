@@ -39,7 +39,7 @@
         .btn-secondary:hover { background: #5a6268; }
         .alert { padding: 15px; border-radius: 5px; margin-bottom: 20px; font-weight: 500; }
         .alert-danger { background: #fee; color: #c33; border: 1px solid #fcc; }
-        .alert-success { background: #dfd; color: #262; border: 1px solid #beb; }
+        .alert-success { background: #dfd; color: rgb(34, 52, 102); border: 1px solid #beb; }
         .room-type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
         .room-type-option { padding: 15px; background: #f8f9fa; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
         .room-type-option:hover { border-color: #667eea; background: #f0f4ff; }
@@ -223,6 +223,12 @@
                             <div class="form-group">
                                 <label for="specialRequests">Special Requests</label>
                                 <textarea name="specialRequests" id="specialRequests" class="form-control" rows="4" placeholder="Enter any special requests or notes..."></textarea>
+                            </div>
+
+                            <!-- Send Email Option -->
+                            <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                                <input type="checkbox" name="sendEmail" id="sendEmail" value="true" checked style="width: auto; accent-color: #667eea;">
+                                <label for="sendEmail" style="margin: 0; font-weight: 500; cursor: pointer;">&#9993; Send booking confirmation email to guest</label>
                             </div>
 
                             <!-- Submit Buttons -->

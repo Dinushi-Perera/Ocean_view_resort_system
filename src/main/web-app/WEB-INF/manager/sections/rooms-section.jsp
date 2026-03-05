@@ -55,7 +55,7 @@
 <div class="search-section">
     <form action="<%= request.getContextPath() %>/manager" method="post" class="search-form">
         <input type="hidden" name="action" value="filterRooms">
-        <div class="form-group">
+        <div class="">
             <label>Filter by Room Type</label>
             <select name="roomType">
                 <option value="all" <%= "all".equals(filterRoomType) ? "selected" : "" %>>All Rooms</option>

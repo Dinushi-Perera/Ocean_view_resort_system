@@ -29,7 +29,7 @@
         .stat-value {
             font-size: 32px;
             font-weight: bold;
-            color: #00796b;
+            color: #01579b;
         }
         .stat-label {
             color: #666;
@@ -47,7 +47,7 @@
             border-collapse: collapse;
         }
         .data-table th {
-            background: #00796b;
+            background: #01579b;
             color: white;
             padding: 12px;
             text-align: left;
@@ -69,7 +69,7 @@
             margin: 2px;
         }
         .btn-primary {
-            background: #00796b;
+            background: #0288d1;
             color: white;
         }
         .btn-secondary {
@@ -77,7 +77,7 @@
             color: white;
         }
         .btn-success {
-            background: #388e3c;
+            background: #01579b;
             color: white;
         }
         .btn-warning {
@@ -118,8 +118,8 @@
         }
         .alert-success {
             background: #c8e6c9;
-            color: #2e7d32;
-            border: 1px solid #4caf50;
+            color: #01579b;
+            border: 1px solid #90a2e8;
         }
         .alert-error {
             background: #ffcdd2;
@@ -134,7 +134,7 @@
         }
         .status-confirmed {
             background: #c8e6c9;
-            color: #2e7d32;
+            color: #01579b;
         }
         .status-checked-in {
             background: #b3e5fc;
@@ -150,7 +150,7 @@
         }
         .status-clean {
             background: #c8e6c9;
-            color: #2e7d32;
+            color: #0288d1;
         }
         .status-dirty {
             background: #ffcdd2;
@@ -169,7 +169,7 @@
         .section-title {
             font-size: 24px;
             font-weight: bold;
-            color: #00796b;
+            color: #0288d1;
         }
         .search-section {
             background: white;
@@ -203,8 +203,8 @@
         .bill-total {
             font-size: 20px;
             font-weight: bold;
-            color: #00796b;
-            border-top: 2px solid #00796b;
+            color: #3a3cc6;
+            border-top: 2px solid #0288d1;
             padding-top: 10px;
         }
     </style>
@@ -281,6 +281,13 @@
                        class="nav-link <%= "billing".equals(currentPage) ? "active" : "" %>">
                         <span class="nav-icon">&#128176;</span>
                         Billing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<%= request.getContextPath() %>/manager/monthly-report" 
+                       class="nav-link <%= "monthly-report".equals(currentPage) ? "active" : "" %>">
+                        <span class="nav-icon">&#128200;</span>
+                        Monthly Report
                     </a>
                 </li>
                 <li class="nav-item">

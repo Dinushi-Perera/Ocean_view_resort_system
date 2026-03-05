@@ -193,7 +193,7 @@
                 <th>Guest Name</th>
                 <th>Room</th>
                 <th>Type</th>
-                <th>Priority</th>
+                <!-- <th>Priority</th> -->
                 <th>Status</th>
                 <th>Requested At</th>
                 <th>Instructions</th>
@@ -215,13 +215,13 @@
                 <td><%= guestName %></td>
                 <td><strong><%= req.getRoomNumber() %></strong></td>
                 <td><%= req.getRequestType() %></td>
-                <td>
+                <!-- <td>
                     <% if ("urgent".equals(req.getPriority())) { %>
                     <span style="color: #d32f2f; font-weight: bold;">⚠ URGENT</span>
                     <% } else { %>
                     <%= req.getPriority() %>
                     <% } %>
-                </td>
+                </td> -->
                 <td>
                     <span class="status-badge <%= statusColor %>">
                         <%= req.getRequestStatus().toUpperCase() %>
