@@ -66,7 +66,7 @@
 |17|[🔒 Security Implementation](#-security-implementation)      |
 |18|[📱 Design Patterns Used](#-design-patterns-used)            |
 |19|[📸 Screenshots & Demo](#-screenshots--demo)                 |
-|20|[🤝 Contributing](#-contributing)                            |
+
 
 </details>
 
