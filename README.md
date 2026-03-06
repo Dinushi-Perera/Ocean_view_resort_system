@@ -1,7 +1,3 @@
-# Ocean_view_resort_system
-Ocean View Resort System is a web-based room reservation management system developed using HTML, CSS, JavaScript, Java, and MySQL. It provides secure login, add/view reservations, bill calculation, and report generation. The system follows a 3-tier architecture with proper validation, database integration, and GitHub version control.
-<div align="center">
-
 <!-- Animated Banner -->
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f4c75,50:1b6ca8,100:00d4ff&height=220&section=header&text=🌊%20Ocean%20View%20Resort&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=Hotel%20Management%20System&descAlignY=58&descSize=22&animation=fadeIn" width="100%"/>
@@ -83,16 +79,16 @@ Ocean View Resort System is a web-based room reservation management system devel
 ```
 ╔══════════════════════════════════════════════════════════════════════╗
 ║                                                                      ║
-║    🌊  O C E A N   V I E W   R E S O R T   S Y S T E M  🌊         ║
+║    🌊  O C E A N   V I E W   R E S O R T   S Y S T E M  🌊          ║
 ║                                                                      ║
 ║   A comprehensive full-stack hotel management web application        ║
 ║   built with Java EE technologies following MVC architecture.        ║
 ║                                                                      ║
-║   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             ║
-║   │  👤 GUESTS   │  │  👔 STAFF    │  │  🏠 ADMIN    │             ║
-║   │  Self-service│  │  Operations  │  │  Full Control│             ║
-║   │  Portal      │  │  Dashboard   │  │  Dashboard   │             ║
-║   └──────────────┘  └──────────────┘  └──────────────┘             ║
+║   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐               ║
+║   │  👤 GUESTS  │   │  👔 STAFF   │  │  🏠 ADMIN    │              ║
+║   │  Self-service│  │  Operations  │  │  Full Control│               ║
+║   │  Portal      │  │  Dashboard   │  │  Dashboard   │               ║
+║   └──────────────┘  └──────────────┘  └──────────────┘               ║
 ║                                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
@@ -109,7 +105,7 @@ The **Ocean View Resort Hotel Management System** is a distributed, full-stack w
 
 <div align="center">
 
-|🌐 Public Website   |👤 Guest Portal        |👔 Staff Portal          |
+|🌐 Public Website   |👤 Guest Portal        |👔 Staff Portal     |
 |:-----------------:|:--------------------:|:----------------------:|
 |Hotel showcase     |Account registration  |Role-based dashboards   |
 |Room browsing      |Room booking          |Reservation management  |
@@ -149,28 +145,28 @@ The **Ocean View Resort Hotel Management System** is a distributed, full-stack w
 │                     TECHNOLOGY STACK                            │
 │                                                                 │
 │   FRONTEND (Presentation Tier)                                  │
-│   ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────┐  │
-│   │   HTML 5   │  │   CSS 3    │  │JavaScript  │  │  JSP   │  │
-│   │  Structure │  │  Styling   │  │ Behaviour  │  │ Views  │  │
-│   └────────────┘  └────────────┘  └────────────┘  └────────┘  │
+│   ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────┐    │
+│   │   HTML 5   │  │   CSS 3    │  │JavaScript  │  │  JSP   │    │
+│   │  Structure │  │  Styling   │  │ Behaviour  │  │ Views  │    │
+│   └────────────┘  └────────────┘  └────────────┘  └────────┘    │
 │                                                                 │
 │   BACKEND (Business Logic Tier)                                 │
-│   ┌──────────────────────┐  ┌────────────────────────────────┐ │
-│   │  Java 17             │  │  Jakarta Servlet API           │ │
-│   │  Core Language       │  │  HTTP Request/Response Handler │ │
-│   └──────────────────────┘  └────────────────────────────────┘ │
+│   ┌──────────────────────┐  ┌────────────────────────────────┐  │
+│   │  Java 17             │  │  Jakarta Servlet API           │  │
+│   │  Core Language       │  │  HTTP Request/Response Handler │  │
+│   └──────────────────────┘  └────────────────────────────────┘  │
 │                                                                 │
 │   DATABASE (Data Tier)                                          │
-│   ┌──────────────────────────────────────────────────────────┐ │
-│   │  MySQL 8.0 · InnoDB · ACID · Stored Procedures           │ │
-│   │  Triggers · Functions · Indexed Queries                   │ │
-│   └──────────────────────────────────────────────────────────┘ │
+│   ┌──────────────────────────────────────────────────────────┐  │
+│   │  MySQL 8.0 · InnoDB · ACID · Stored Procedures           │  │
+│   │  Triggers · Functions · Indexed Queries                  │  │
+│   └──────────────────────────────────────────────────────────┘  │
 │                                                                 │
 │   SERVER & TOOLS                                                │
-│   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────────┐  │
-│   │ Apache   │  │  Maven   │  │  JUnit 5 │  │   GitHub    │  │
-│   │ Tomcat10 │  │  Build   │  │  Testing │  │ CI/CD & VCS │  │
-│   └──────────┘  └──────────┘  └──────────┘  └─────────────┘  │
+│   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌─────────────┐     │
+│   │ Apache   │  │  Maven   │  │  JUnit 5 │  │   GitHub    │     │
+│   │ Tomcat10 │  │  Build   │  │  Testing │  │ CI/CD & VCS │     │
+│   └──────────┘  └──────────┘  └──────────┘  └─────────────┘     │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -189,26 +185,26 @@ The **Ocean View Resort Hotel Management System** is a distributed, full-stack w
 ┌─────────────────────────────────────────────────────────────────────┐
 │  TIER 1: PRESENTATION LAYER                                         │
 │                                                                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │
-│  │  JSP Pages   │  │  HTML/CSS    │  │  JavaScript  │             │
-│  │  (Views)     │  │  (Styling)   │  │  (Behaviour) │             │
-│  └──────────────┘  └──────────────┘  └──────────────┘             │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐               │
+│  │  JSP Pages   │  │  HTML/CSS    │  │  JavaScript  │               │
+│  │  (Views)     │  │  (Styling)   │  │  (Behaviour) │               │
+│  └──────────────┘  └──────────────┘  └──────────────┘               │
 └──────────────────────────────┬──────────────────────────────────────┘
                                │ forward / redirect
 ┌──────────────────────────────▼──────────────────────────────────────┐
 │  TIER 2: BUSINESS LOGIC LAYER                                       │
 │                                                                     │
-│  ┌─────────────────────────────────────────────────────────────┐   │
-│  │                   CONTROLLER (Servlets)                      │   │
-│  │  LoginServlet · BookingServlet · BillServlet                 │   │
-│  │  CleaningServlet · AdminServlet · ReportServlet              │   │
-│  └──────────────────────────┬────────────────────────────────── ┘  │
-│                             │  calls                               │
-│  ┌──────────────────────────▼─────────────────────────────────┐    │
+│  ┌─────────────────────────────────────────────────────────────┐    │
+│  │                   CONTROLLER (Servlets)                     │    │
+│  │  LoginServlet · BookingServlet · BillServlet                │    │
+│  │  CleaningServlet · AdminServlet · ReportServlet             │    │
+│  └──────────────────────────┬───────────────────────────────── ┘    │
+│                             │  calls                                │
+│  ┌──────────────────────────▼──────────────────────────────── ─┐    │
 │  │                     MODEL (Java Classes)                    │    │
-│  │  Guest · Staff · Room · Reservation · Bill · CleaningReq   │    │
+│  │  Guest · Staff · Room · Reservation · Bill · CleaningReq    │    │
 │  │  RoomDAO · ReservationDAO · GuestDAO · BillDAO              │    │
-│  └──────────────────────────┬───────────────────────────────── ┘   │
+│  └────────────────────────── ┬──────────────────────────────── ┘    │
 └──────────────────────────────┼──────────────────────────────────────┘
                                │ JDBC SQL
 ┌──────────────────────────────▼──────────────────────────────────────┐
@@ -216,8 +212,8 @@ The **Ocean View Resort Hotel Management System** is a distributed, full-stack w
 │                                                                     │
 │  ┌────────────────────────────────────────────────────────────────┐ │
 │  │  MySQL Database                                                │ │
-│  │  guests · rooms · reservations · cleaning_requests            │ │
-│  │  bills · staff · (+ stored procedures + triggers)             │ │
+│  │  guests · rooms · reservations · cleaning_requests             │ │
+│  │  bills · staff · (+ stored procedures + triggers)              │ │
 │  └────────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -339,8 +335,6 @@ OceanViewResort/
 │   │       │
 │   │       ├── 📂 css/
 │   │       │   ├── style.css
-│   │       │   ├── dashboard.css
-│   │       │   └── responsive.css
 │   │       │
 │   │       ├── 📂 js/
 │   │       │   ├── main.js
@@ -368,92 +362,6 @@ OceanViewResort/
 ```
 
 -----
-
-## 🗄️ Database Schema
-
-```sql
--- ════════════════════════════════════════
---   OCEAN VIEW RESORT · DATABASE SCHEMA
--- ════════════════════════════════════════
-
-CREATE DATABASE ocean_view_resort;
-USE ocean_view_resort;
-
--- 👤 GUESTS TABLE
-CREATE TABLE guests (
-    guest_id       INT AUTO_INCREMENT PRIMARY KEY,
-    first_name     VARCHAR(50)  NOT NULL,
-    last_name      VARCHAR(50)  NOT NULL,
-    email          VARCHAR(100) NOT NULL UNIQUE,
-    phone          VARCHAR(15)  NOT NULL,
-    nic_passport   VARCHAR(20)  NOT NULL,
-    password_hash  VARCHAR(255) NOT NULL,       -- BCrypt hashed
-    is_active      BOOLEAN DEFAULT TRUE,
-    created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 🏠 ROOMS TABLE
-CREATE TABLE rooms (
-    room_id      INT AUTO_INCREMENT PRIMARY KEY,
-    room_number  VARCHAR(10) NOT NULL UNIQUE,
-    floor        INT NOT NULL,
-    room_type    ENUM('STANDARD','DELUXE','SUITE','PRESIDENTIAL') NOT NULL,
-    status       ENUM('available','occupied','maintenance') DEFAULT 'available',
-    capacity     INT NOT NULL
-);
-
--- 📅 RESERVATIONS TABLE
-CREATE TABLE reservations (
-    reservation_id  INT AUTO_INCREMENT PRIMARY KEY,
-    guest_id        INT NOT NULL,
-    room_id         INT NOT NULL,
-    check_in        DATE NOT NULL,
-    check_out       DATE NOT NULL,
-    num_guests      INT NOT NULL,
-    status          ENUM('pending','confirmed','cancelled','completed') DEFAULT 'pending',
-    special_requests TEXT,
-    total_cost      DECIMAL(10,2),
-    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (guest_id) REFERENCES guests(guest_id),
-    FOREIGN KEY (room_id)  REFERENCES rooms(room_id)
-);
-
--- 🧹 CLEANING REQUESTS TABLE
-CREATE TABLE cleaning_requests (
-    request_id           INT AUTO_INCREMENT PRIMARY KEY,
-    guest_id             INT NOT NULL,
-    cleaning_type        ENUM('general_cleaning','extra_cleaning','fresh_towels',
-                              'bed_sheet_change','toiletries_refill','maintenance_issue'),
-    urgency              ENUM('normal','urgent') DEFAULT 'normal',
-    special_instructions TEXT,
-    status               ENUM('pending','in_progress','completed') DEFAULT 'pending',
-    handled_by           INT,
-    request_date         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (guest_id)   REFERENCES guests(guest_id),
-    FOREIGN KEY (handled_by) REFERENCES staff(staff_id)
-);
-
--- 💰 BILLS TABLE
-CREATE TABLE bills (
-    bill_id         INT AUTO_INCREMENT PRIMARY KEY,
-    reservation_id  INT NOT NULL UNIQUE,
-    total_amount    DECIMAL(10,2) NOT NULL,
-    generated_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    is_paid         BOOLEAN DEFAULT FALSE,
-    pdf_path        VARCHAR(255),
-    FOREIGN KEY (reservation_id) REFERENCES reservations(reservation_id)
-);
-
--- 👔 STAFF TABLE
-CREATE TABLE staff (
-    staff_id       INT AUTO_INCREMENT PRIMARY KEY,
-    username       VARCHAR(50)  NOT NULL UNIQUE,
-    password_hash  VARCHAR(255) NOT NULL,
-    role           ENUM('ADMIN','MANAGER','RECEPTIONIST') NOT NULL,
-    is_active      BOOLEAN DEFAULT TRUE,
-    created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
 
 ### 🔧 Advanced Database Features
 
@@ -495,12 +403,12 @@ RETURN DATEDIFF(checkOut, checkIn);
 
 ```
                     ┌─────────────────────────────────┐
-                    │     OCEAN VIEW RESORT WEBSITE    │
-                    │  (Public: Home, Rooms, Gallery,  │
-                    │   Amenities, Contact)            │
+                    │     OCEAN VIEW RESORT WEBSITE   │
+                    │  (Public: Home, Rooms, Gallery, │
+                    │   Amenities, Contact)           │
                     └────────────┬────────────────────┘
                                  │
-              ┌──────────────────┴──────────────────┐
+              ┌──────────────────┴───────────────────┐
               │                                      │
     ┌─────────▼──────────┐              ┌────────────▼───────────┐
     │   GUEST LOGIN      │              │    STAFF LOGIN         │
@@ -558,10 +466,10 @@ Help & support section           │  ✅  │      ✅      │   ✅   │  �
 ```
 🌐 URL: http://localhost:8080/oceanviewresort/guestLogin.jsp
 
-┌──────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────┐
 │  NEW GUEST?  →  Click "Register" to create an account   │
-│                                                          │
-│  Registration requires:                                  │
+│                                                         │
+│  Registration requires:                                 │
 │  ✦ First Name & Last Name                               │
 │  ✦ Contact Number (10 digits)                           │
 │  ✦ NIC or Passport Number                               │
@@ -605,7 +513,7 @@ Help & support section           │  ✅  │      ✅      │   ✅   │  �
 ║               ○ Receptionist                             ║
 ║  Step 5 →  Click "Login"                                 ║
 ║                                                          ║
-║  ⚡ You will be automatically redirected to your         ║
+║  ⚡ You will be automatically redirected to your        ║
 ║     role-specific dashboard!                             ║
 ╚══════════════════════════════════════════════════════════╝
 ```
@@ -1413,38 +1321,38 @@ mvn test jacoco:report
 
 ## 📸 Screenshots & Demo
 
-> 🖼️ Replace the placeholder links below with actual screenshots from your running system.
-
 ```
-📸 SUGGESTED SCREENSHOTS TO ADD:
+📸 SCREENSHOTS:
   1. Public homepage — full width hero banner
+![home page](https://github.com/user-attachments/assets/b46d2afb-dafb-4ed9-92f4-a892f8f91e36)
+
   2. Guest registration form
+![guest register create acc](https://github.com/user-attachments/assets/fda7135d-203e-4b89-b091-51812535daa8)
+
   3. Guest dashboard with stats cards
+![guest dash](https://github.com/user-attachments/assets/01ea4c5d-325e-4cad-9ea0-ba57ee7dc85e)
+
   4. Room booking form (with date pickers)
+![t8 1](https://github.com/user-attachments/assets/058372a6-d1e2-40eb-9e3e-3eda95c54edc)
+
   5. My Reservations table
+![t15](https://github.com/user-attachments/assets/843e1bba-1e0a-4aee-b5ad-7718e6e8cddf)
+
   6. Cleaning request form
+![clean form](https://github.com/user-attachments/assets/d223a254-c21d-4edd-a6ad-b6b5e1073873)
+
   7. PDF bill preview / download modal
+<img width="1752" height="892" alt="bill" src="https://github.com/user-attachments/assets/650feaa0-4ca7-4338-ac32-da269cf30cd5" />
+
   8. Staff login page with role dropdown
-  9. Admin dashboard — staff management panel
-  10. Manager — monthly financial report
-  11. Receptionist — check-in/check-out panel
-  12. GitHub Actions CI/CD pipeline — green status
+![staff logn](https://github.com/user-attachments/assets/28a0aaaf-6d6b-4a24-8827-1829c55ae93d)
+
+  9. Admin dashboard - staff management panel
+![admin dashboard](https://github.com/user-attachments/assets/817ff30f-721d-42c6-8a6d-c045bc93b97b)
+
+  10. Manager - monthly financial report
+![manger monthly report](https://github.com/user-attachments/assets/4201c560-504b-444a-9680-a0e8e1f88fad)
 ```
-
-*Add screenshots to the `docs/screenshots/` folder and link them here.*
-
------
-
-## 🤝 Contributing
-
-This is an academic project. To suggest improvements:
-
-1. Fork the repository
-1. Create a feature branch: `git checkout -b feature/your-improvement`
-1. Commit your changes: `git commit -m "feat: your improvement"`
-1. Push to branch: `git push origin feature/your-improvement`
-1. Open a Pull Request
-
 -----
 
 ## 📋 Project Info
@@ -1470,16 +1378,13 @@ Version:        v1.0.0
 <div align="center">
 
 <!-- Footer Wave -->
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00d4ff,50:1b6ca8,100:0f4c75&height=120&section=footer&animation=fadeIn" width="100%"/>
-
-**🌊 Ocean View Resort Hotel Management System**
-
-*Built with ❤️ as a Full-Stack Java EE IT Student Project*
-
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/ocean-view-resort?style=social)](https://github.com/yourusername/ocean-view-resort)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/ocean-view-resort?style=social)](https://github.com/yourusername/ocean-view-resort/fork)
-
+Made with 💙 by Dinushi Perera
+**🌊 Ocean View Resort Hotel Management System** - Full Stack Java Project</br>
 `Java` · `MySQL` · `JSP` · `Jakarta Servlet` · `MVC` · `3-Tier` · `GitHub Actions`
+</div>
+<div align="center">
+<!-- Footer Wave -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2eb8b8,50:1e6fa5,100:0a3d62&height=120&section=footer&animation=fadeIn" width="100%"/>
+
 
 </div>
