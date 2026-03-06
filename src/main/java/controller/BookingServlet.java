@@ -1,9 +1,12 @@
 package controller;
 
 import DAO.BookingDAO;
+import DAO.GuestDAO;
 import DAO.RoomDAO;
 import model.Booking;
+import model.Guest;
 import model.Room;
+import util.EmailService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,11 +23,13 @@ import java.util.List;
 public class BookingServlet extends HttpServlet {
     private BookingDAO bookingDAO;
     private RoomDAO roomDAO;
+    private GuestDAO guestDAO;
 
     @Override
     public void init() {
         bookingDAO = new BookingDAO();
         roomDAO = new RoomDAO();
+        guestDAO = new GuestDAO();
     }
 
     @Override
@@ -161,6 +166,17 @@ public class BookingServlet extends HttpServlet {
                     System.err.println("WARNING: Booking created but failed to update room status for room ID: " + roomId);
                     request.setAttribute("success", "Room booked successfully! Your booking ID is: " + booking.getId());
                 }
+
+                // Send booking confirmation email to the guest
+                try {
+                    Guest guest = guestDAO.getGuestById(guestId);
+                    if (guest != null) {
+                        EmailService.sendBookingConfirmation(guest, booking, selectedRoom);
+                    }
+                } catch (Exception emailEx) {
+                    System.err.println("WARNING: Booking confirmed but email notification failed: " + emailEx.getMessage());
+                }
+
                 request.setAttribute("bookingId", booking.getId());
                 request.getRequestDispatcher("/booking_confirmation.jsp").forward(request, response);
             } else {

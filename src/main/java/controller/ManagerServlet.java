@@ -5,6 +5,7 @@ import DAO.CleaningRequestDAO;
 import DAO.GuestDAO;
 import DAO.RoomDAO;
 import model.Booking;
+import util.EmailService;
 import model.CleaningRequest;
 import model.Guest;
 import model.Room;
@@ -17,7 +18,10 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.HashMap;
@@ -89,6 +93,9 @@ public class ManagerServlet extends HttpServlet {
                 break;
             case "/billing":
                 showBilling(request, response);
+                break;
+            case "/monthly-report":
+                showMonthlyReport(request, response);
                 break;
             case "/help":
                 showHelp(request, response);
@@ -257,6 +264,159 @@ public class ManagerServlet extends HttpServlet {
         request.setAttribute("roomPrices", roomPrices);
         request.setAttribute("currentPage", "billing");
         request.getRequestDispatcher("/WEB-INF/manager/dashboard.jsp").forward(request, response);
+    }
+
+    private void showMonthlyReport(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String monthParam = request.getParameter("month");
+        String yearParam  = request.getParameter("year");
+
+        request.setAttribute("selectedMonth", monthParam);
+        request.setAttribute("selectedYear",  yearParam);
+
+        int reportMonth = 0, reportYear = 0;
+        try { reportMonth = Integer.parseInt(monthParam); } catch (Exception ignored) {}
+        try { reportYear  = Integer.parseInt(yearParam);  } catch (Exception ignored) {}
+
+        if (reportMonth > 0 && reportYear > 0) {
+            try {
+                YearMonth ym    = YearMonth.of(reportYear, reportMonth);
+                LocalDate start = ym.atDay(1);
+                LocalDate end   = ym.atEndOfMonth();
+
+                // ── Direct SQL JOIN query — no Java-side filtering, no NPE risk ──
+                List<Map<String, Object>> dbRows = bookingDAO.getMonthlyBookingsWithGuests(start, end);
+                System.out.println("DEBUG showMonthlyReport: " + dbRows.size() + " bookings for " + start + " to " + end);
+
+                List<Map<String, Object>> receiptRows = new ArrayList<>();
+                Map<String, Double>  revenueByType  = new LinkedHashMap<>();
+                Map<String, Integer> countByType    = new LinkedHashMap<>();
+                Map<String, Integer> nightsByType   = new LinkedHashMap<>();
+                for (String t : new String[]{"standard","deluxe","suite","presidential"}) {
+                    revenueByType.put(t, 0.0);
+                    countByType.put(t, 0);
+                    nightsByType.put(t, 0);
+                }
+
+                double actualSubtotal = 0, actualServiceCharge = 0, actualTax = 0, actualRevenue = 0;
+                double projectedRevenue = 0;
+                int totalNights = 0, checkedOutCount = 0, confirmedCount = 0;
+                int checkedInCount = 0, pendingCount = 0, cancelledCount = 0;
+
+                for (Map<String, Object> dbRow : dbRows) {
+                    try {
+                        String rt     = (String) dbRow.get("roomType");
+                        if (rt == null || rt.isEmpty()) rt = "standard";
+                        String status = (String) dbRow.get("bookingStatus");
+                        if (status == null || status.isEmpty()) status = "pending";
+
+                        LocalDate ci = (LocalDate) dbRow.get("checkIn");
+                        LocalDate co = (LocalDate) dbRow.get("checkOut");
+                        if (ci == null) ci = start;
+                        if (co == null) co = end;
+
+                        double roomRate = roomDAO.getRoomPriceByType(rt);
+                        if (roomRate <= 0) roomRate = 0;
+
+                        long nights = java.time.temporal.ChronoUnit.DAYS.between(ci, co);
+                        if (nights <= 0) nights = 1;
+
+                        double subtotal      = nights * roomRate;
+                        double serviceCharge = subtotal * 0.10;
+                        double tax           = subtotal * 0.12;
+                        double total         = subtotal + serviceCharge + tax;
+
+                        Map<String, Object> row = new HashMap<>();
+                        row.put("bookingId",       dbRow.get("bookingId"));
+                        row.put("guestId",         dbRow.get("guestId"));
+                        row.put("guestName",       dbRow.get("guestName"));
+                        row.put("guestEmail",      dbRow.get("guestEmail"));
+                        row.put("guestContact",    dbRow.get("guestContact"));
+                        row.put("guestNic",        dbRow.get("guestNic"));
+                        row.put("roomNumber",      dbRow.get("roomNumber"));
+                        row.put("roomType",        rt);
+                        row.put("numGuests",       dbRow.get("numGuests"));
+                        row.put("checkIn",         ci.toString());
+                        row.put("checkOut",        co.toString());
+                        row.put("nights",          nights);
+                        row.put("roomRate",        roomRate);
+                        row.put("subtotal",        subtotal);
+                        row.put("serviceCharge",   serviceCharge);
+                        row.put("tax",             tax);
+                        row.put("total",           total);
+                        row.put("status",          status);
+                        row.put("specialRequests", dbRow.get("specialRequests"));
+                        String cat = (String) dbRow.get("createdAt");
+                        row.put("createdAt", cat != null && cat.length() > 10 ? cat.substring(0, 10) : (cat != null ? cat : "-"));
+                        receiptRows.add(row);
+
+                        if (!"cancelled".equals(status)) {
+                            revenueByType.put(rt, revenueByType.getOrDefault(rt, 0.0) + total);
+                            countByType.put(rt,   countByType.getOrDefault(rt, 0) + 1);
+                            nightsByType.put(rt,  nightsByType.getOrDefault(rt, 0) + (int) nights);
+                            totalNights += (int) nights;
+                        }
+
+                        switch (status) {
+                            case "checked-out":
+                                checkedOutCount++;
+                                actualSubtotal      += subtotal;
+                                actualServiceCharge += serviceCharge;
+                                actualTax           += tax;
+                                actualRevenue       += total;
+                                break;
+                            case "checked-in":
+                                checkedInCount++;
+                                projectedRevenue += total;
+                                break;
+                            case "confirmed":
+                                confirmedCount++;
+                                projectedRevenue += total;
+                                break;
+                            case "cancelled":
+                                cancelledCount++;
+                                break;
+                            default:
+                                pendingCount++;
+                                break;
+                        }
+                    } catch (Exception rowErr) {
+                        System.err.println("WARN: skipping booking row due to error: " + rowErr.getMessage());
+                    }
+                }
+
+                Map<String, Object> summary = new HashMap<>();
+                summary.put("actualRevenue",       actualRevenue);
+                summary.put("actualSubtotal",      actualSubtotal);
+                summary.put("actualServiceCharge", actualServiceCharge);
+                summary.put("actualTax",           actualTax);
+                summary.put("netIncome",           actualRevenue - actualServiceCharge - actualTax);
+                summary.put("projectedRevenue",    projectedRevenue);
+                summary.put("totalBookings",       receiptRows.size());
+                summary.put("totalNights",         totalNights);
+                summary.put("checkedOutCount",     checkedOutCount);
+                summary.put("confirmedCount",      confirmedCount);
+                summary.put("checkedInCount",      checkedInCount);
+                summary.put("pendingCount",        pendingCount);
+                summary.put("cancelledCount",      cancelledCount);
+                summary.put("revenueByType",       revenueByType);
+                summary.put("countByType",         countByType);
+                summary.put("nightsByType",        nightsByType);
+                summary.put("periodStart",         start.toString());
+                summary.put("periodEnd",           end.toString());
+
+                request.setAttribute("receiptRows", receiptRows);
+                request.setAttribute("summary",     summary);
+
+            } catch (Exception e) {
+                System.err.println("ERROR in showMonthlyReport: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+
+        request.setAttribute("currentPage", "monthly-report");
+        request.getRequestDispatcher("/WEB-INF/manager/monthly_report.jsp").forward(request, response);
     }
 
     private void showHelp(HttpServletRequest request, HttpServletResponse response)
@@ -448,6 +608,16 @@ public class ManagerServlet extends HttpServlet {
             
             if (success) {
                 request.setAttribute("successMessage", "Reservation created successfully! Booking ID: " + booking.getId());
+
+                // Send confirmation email if requested
+                String sendEmail = request.getParameter("sendEmail");
+                if ("true".equals(sendEmail)) {
+                    try {
+                        EmailService.sendBookingConfirmation(guest, booking, null);
+                    } catch (Exception emailEx) {
+                        System.err.println("WARNING: Reservation created but email notification failed: " + emailEx.getMessage());
+                    }
+                }
             } else {
                 request.setAttribute("errorMessage", "Failed to create reservation.");
             }
