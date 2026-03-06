@@ -6,6 +6,7 @@ import DAO.RoomDAO;
 import model.Booking;
 import model.Guest;
 import model.Room;
+import util.EmailService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -265,6 +266,18 @@ public class ReceptionistServlet extends HttpServlet {
                 } else {
                     request.setAttribute("message", "Guest checked out successfully!");
                 }
+
+                // Send bill email to the guest
+                try {
+                    Guest guest = guestDAO.getGuestById(booking.getGuestId());
+                    Room room = (booking.getRoomId() != null) ? roomDAO.getRoomById(booking.getRoomId()) : null;
+                    Map<String, Object> billDetails = calculateBill(booking);
+                    if (guest != null) {
+                        EmailService.sendCheckoutBill(guest, booking, room, billDetails);
+                    }
+                } catch (Exception emailEx) {
+                    System.err.println("WARNING: Checkout successful but bill email failed: " + emailEx.getMessage());
+                }
             } else {
                 request.setAttribute("error", "Failed to check out guest.");
             }
@@ -406,6 +419,20 @@ public class ReceptionistServlet extends HttpServlet {
                     request.setAttribute("message", "Booking created successfully! Booking ID: " + booking.getId() + 
                                        " (Note: Room status update warning)");
                 }
+
+                // Send booking confirmation email if the staff checked the checkbox
+                String sendEmail = request.getParameter("sendEmail");
+                if ("true".equals(sendEmail)) {
+                    try {
+                        Guest bookingGuest = guestDAO.getGuestById(guestId);
+                        if (bookingGuest != null) {
+                            EmailService.sendBookingConfirmation(bookingGuest, booking, selectedRoom);
+                        }
+                    } catch (Exception emailEx) {
+                        System.err.println("WARNING: Booking created but email notification failed: " + emailEx.getMessage());
+                    }
+                }
+
                 showReservations(request, response);
             } else {
                 request.setAttribute("error", "Failed to create booking. Please try again.");

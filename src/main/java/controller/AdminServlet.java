@@ -6,6 +6,7 @@ import DAO.GuestDAO;
 import DAO.RoomDAO;
 import DAO.StaffDAO;
 import model.Booking;
+import util.EmailService;
 import model.CleaningRequest;
 import model.Guest;
 import model.Room;
@@ -322,8 +323,21 @@ public class AdminServlet extends HttpServlet {
             booking.setBookingStatus("confirmed");
 
             boolean ok = bookingDAO.createBooking(booking);
-            request.setAttribute(ok ? "successMessage" : "errorMessage",
-                    ok ? "Reservation created! Booking #" + booking.getId() : "Failed to create reservation.");
+            if (ok) {
+                request.setAttribute("successMessage", "Reservation created! Booking #" + booking.getId());
+
+                // Send confirmation email if requested
+                String sendEmail = request.getParameter("sendEmail");
+                if ("true".equals(sendEmail)) {
+                    try {
+                        EmailService.sendBookingConfirmation(guest, booking, null);
+                    } catch (Exception emailEx) {
+                        System.err.println("WARNING: Reservation created but email notification failed: " + emailEx.getMessage());
+                    }
+                }
+            } else {
+                request.setAttribute("errorMessage", "Failed to create reservation.");
+            }
         } catch (Exception e) {
             request.setAttribute("errorMessage", "Error: " + e.getMessage());
         }
